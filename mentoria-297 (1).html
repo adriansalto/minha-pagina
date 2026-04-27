@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentoria Individual — Adriana Salto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #c8a96e;
+      --gold-dim: rgba(200,169,110,0.12);
+      --bg: #0a0a0a;
+      --text: #f0ede6;
+      --muted: #a09890;
+      --dark: #666;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── DOBRA 1: HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+      position: relative;
+      background: #0a0a0a;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(200,169,110,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(200,169,110,0.4);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      max-width: 680px;
+      color: var(--text);
+      margin-bottom: 1rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .dor {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+      max-width: 520px;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .dor strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .dor-list {
+      list-style: none;
+      margin: 1.5rem 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .dor-list li {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .dor-list li::before {
+      content: '→';
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .price-wrap {
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .price-label {
+      font-size: 12px;
+      color: var(--dark);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-main {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .price-sub {
+      font-size: 0.9rem;
+      color: var(--dark);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #0a0a0a;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 1.1rem 3rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      animation: fadeUp 0.6s 0.5s ease both;
+    }
+
+    .cta-btn:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .fine {
+      font-size: 12px;
+      color: #444;
+      margin-top: 1rem;
+      font-weight: 300;
+      animation: fadeUp 0.6s 0.6s ease both;
+    }
+
+    /* ── DOBRA 2: QUEM SOU + OFERTA ── */
+    .dobra2 {
+      background: #080808;
+      border-top: 1px solid #1a1a1a;
+      padding: 5rem 1.5rem;
+    }
+
+    .dobra2-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .quem-sou {
+      margin-bottom: 4rem;
+    }
+
+    .quem-sou h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .quem-sou h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #1a1a1a;
+      border: 1px solid #1e1e1e;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .stat {
+      background: #0e0e0e;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--dark);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    .bio {
+      color: var(--muted);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.8;
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .bio strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Oferta final */
+    .oferta {
+      background: #0e0e0e;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .oferta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .oferta > p {
+      color: var(--dark);
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 4px;
+      margin: 1rem 0;
+    }
+
+    .cur {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-top: 10px;
+    }
+
+    .amt {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .parcel {
+      font-size: 0.9rem;
+      color: var(--dark);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .parcel span {
+      color: var(--muted);
+    }
+
+    .guarantee {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+
+    .g-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(200,169,110,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .guarantee h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .guarantee p {
+      font-size: 0.82rem;
+      color: var(--dark);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 520px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stats .stat:last-child { grid-column: 1 / -1; }
+      .oferta { padding: 2rem 1.25rem; }
+      .amt { font-size: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── DOBRA 1 ── -->
+  <section class="hero">
+    <span class="tag">Acompanhamento em Grupo — Vagas Limitadas</span>
+
+    <h1>Você já tentou de tudo.<br>E ainda <em>não passou.</em></h1>
+
+    <p class="dor">Você não é burro. Você não tem preguiça.<br>
+    <strong>Você só nunca teve o método certo — e alguém do seu lado de verdade.</strong></p>
+
+    <ul class="dor-list">
+      <li>Tempo curto, rotina pesada e ainda tem que estudar</li>
+      <li>Conta no vermelho e cada prova que não passa é dinheiro jogado fora</li>
+      <li>Assistiu curso, leu apostila, não passou — e não sabe mais o que fazer</li>
+      <li>Precisa mudar de vida, mas sente que a aprovação está sempre escapando</li>
+    </ul>
+
+    <div class="price-wrap">
+      <p class="price-label">Investimento único</p>
+      <div class="price-main">R$297</div>
+      <p class="price-sub">ou em até 12× no cartão</p>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/Fu4g2ZN" class="cta-btn">Quero minha vaga agora</a>
+    <p class="fine">Pix ou cartão · Garantia de 15 dias · Vagas limitadas</p>
+  </section>
+
+  <!-- ── DOBRA 2 ── -->
+  <section class="dobra2">
+    <div class="dobra2-inner">
+
+      <!-- Quem sou eu -->
+      <div class="quem-sou">
+        <span class="section-label">Quem vai te mentorar</span>
+        <h2>Adriana Salto —<br><em>38 anos de serviço público.</em></h2>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">38</div>
+            <div class="stat-label">anos de serviço público</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">aprovações no TJSP e MPSP em 9 meses de estudos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2022</div>
+            <div class="stat-label">ensinando pessoas a passar</div>
+          </div>
+        </div>
+
+        <p class="bio">
+          Passei em <strong>Prefeitura Municipal, Banco do Brasil, Tribunal de Justiça de SP e Ministério Público de SP</strong> — tive <strong>3 aprovações no TJSP e MPSP em 9 meses de estudos.</strong><br><br>
+          Desde 2022 ensino pessoas a estudar de forma estratégica. E insisto: <strong>concurso não é pra quem é inteligente, é pra quem tem método.</strong> Não existe "não passar" — existe quem desiste ou fica pulando de galho em galho sem resultado.<br><br>
+          Com meu acompanhamento de perto e o seu comprometimento, <strong>a sua aprovação é só questão de tempo.</strong>
+        </p>
+      </div>
+
+      <!-- Oferta -->
+      <div class="oferta">
+        <span class="section-label">Sua vaga</span>
+        <h2>Acompanhamento em Grupo<br>com Adriana Salto</h2>
+        <p>12 encontros em grupo. Com a Adriana do seu lado.</p>
+
+        <div class="price-card-main">
+          <span class="cur">R$</span>
+          <span class="amt">297</span>
+        </div>
+        <p class="parcel">ou <span>12× de R$28,58</span> no cartão</p>
+
+        <a href="https://pay.kiwify.com.br/Fu4g2ZN" class="cta-btn">Garantir minha vaga agora</a>
+
+        <div class="guarantee">
+          <div class="g-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Garantia de 15 dias</h4>
+            <p>Se nos primeiros 15 dias você sentir que não está valendo, devolvo seu investimento integralmente. Sem burocracia.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
